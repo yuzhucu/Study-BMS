@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar collapse" id="my-menu">
+            <div class="my-menu-item" data-target="#menu-son1" data-toggle="collapse"><a>按图书分类</a></div>
+            <ul class="nav nav-sidebar " id="menu-son1">
+                {% for p in category %}
+				       <li class="list-group-item"><a href="{% url 'category' id=p.id %}">{{p}}</a></li>
+				{% endfor %}
+            </ul>
+
+            <div class="my-menu-item" href="#menu-son2" data-toggle="collapse"><a>按出版社</a></div>
+            <ul class="nav nav-sidebar collapse" id="menu-son2">
+				{% for p in publishers %}
+				       <li class="list-group-item"><a href="{% url 'publisher' id=p.id %}">{{p}}</a></li>
+				{% endfor %}
+
+            </ul>
+
+            <div class="my-menu-item" href="#menu-son3" data-toggle="collapse"><a>按作者</a></div>
+            <ul class="nav nav-sidebar collapse" id="menu-son3">
+
+				{% for p in authors %}
+				       <li class="list-group-item"><a href="{% url 'author' id=p.id %}">{{p}}</a></li>
+				{% endfor %}
+            </ul>
+
+
+        </div>
+

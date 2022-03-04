@@ -1,0 +1,34 @@
+<nav aria-label="Page navigation" >
+
+        <ul class="pagination">
+            {% if page.has_previous %}
+                {# page.has_previous: 判断当前页page是否含有上一页的属性 #}
+                {# page.previous_page_number：上一页的页码 #}
+                <li>
+                    <a href="?page={{ page.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
+            {% endif %}
+            {# 每次点击页码，这20次循环都会从头开始循环。 #}
+            {% for page_number in page.paginator.page_range %}
+                {% if page_number == page.number %}
+                    {# 如果当前查询的页码和循环的页码刚好相等 #}
+            <span>
+                    <li class="active"><a class="end" href="?page={{ page_number }}">{{ page_number }}</a></li>
+            </span>
+                {% else %}
+            <span>
+                <li><a class="end" href="?page={{ page_number }}">{{ page_number }}</a></li>
+            </span>
+                {% endif %}
+            {% endfor %}
+            {% if page.has_next %}
+                <li>
+                    <a href="?page={{ page.next_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+            {% endif %}
+      </ul>
+</nav>

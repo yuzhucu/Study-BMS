@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">图书信息管理系统</h1>
+            <!-- 面板开始 -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">出版社管理</h3>
+                </div>
+                <div class="panel-body">
+                    <!--表格 工具栏 开始-->
+                    <div class="row table-toolbar">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 pull-right add-btn">
+                            <a href="/pub/add/" class="btn btn-info pull-right">添加出版社</a>
+                        </div>
+
+                    </div>
+                    <!--表格 工具栏 结束-->
+                    <!--表格  开始-->
+                    {%  include 'publisher_form.html' %}
+                    <!--表格  结束-->
+                </div>
+            <!-- 面板 结束-->
+            </div>
+
+    </div>
+
+
+
+{% endblock %}
+

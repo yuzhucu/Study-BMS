@@ -1,0 +1,16 @@
+   <form method="post" class="form-horizontal" novalidate>
+            {% csrf_token %}
+            {#for循环form对象#}
+            {% for field in form %}
+                <div class="form-group">
+                    {#显示字段名#}
+                    <label class="col-sm-2 control-label">{{ field.label }} </label>
+                    <div class="col-sm-10">
+                        {#显示字段的输入框以及错误信息,0表示取第一个错误#}
+                      {{ field }} {{ field.errors.0 }}
+                    </div>
+                  </div>
+            {% endfor %}
+            <input type="submit" value="提交">
+
+   </form>
