@@ -234,7 +234,7 @@ def get_books_by_category(request,id):
 
 
 def get_books_by_author(request,id):
-    books = models.Book.objects.filter(authors_id=id).order_by('-update_time')
+    books = models.Book.objects.filter(authors=id).order_by('-update_time')
     paginator = Paginator(books, 20)
     try:
         page_number = request.GET.get('page', '1')
